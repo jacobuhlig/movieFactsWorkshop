@@ -4,6 +4,7 @@ import com.example.moviefactsworkshop.fileHandler.FileHandler;
 import com.example.moviefactsworkshop.models.Movie;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MovieService {
 
@@ -26,14 +27,32 @@ public class MovieService {
 
     public ArrayList<String> getAndSortTenRandomMovies() {
         fh.handler();
-        ArrayList<String> a = new ArrayList<>();
+        ArrayList<Movie> movieList = new ArrayList<>();
+        ArrayList<String> topTenList = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            a.add(fh.getMovies().get(fh.randomizer()).toString());
+            movieList.add(fh.getMovies().get(fh.randomizer()));
         }
 
-        //Implement sorting according to popularity code here
+        Collections.sort(movieList);
 
-        return a;
+        for (int i = 0; i < 10; i++) {
+            topTenList.add(movieList.get(i).toString());
+        }
+
+        return topTenList;
+    }
+
+    public int howManyWonAnAward() {
+        fh.handler();
+        int count = 0;
+
+        for (int i = 0; i < fh.getMovies().size(); i++) {
+            if(fh.getMovies().get(i).hasWonAward()) {
+                count ++;
+            }
+        }
+        
+        return count;
     }
 }

@@ -37,7 +37,6 @@ public class MainController {
     //3.5
     @GetMapping("/howManyWonAnAward")
     public String howManyWonAnAward() {
-        //return mv.randomMovie();
-        return "incomplete";
+        return "Number of total awards: " + mv.howManyWonAnAward();
     }
 }
