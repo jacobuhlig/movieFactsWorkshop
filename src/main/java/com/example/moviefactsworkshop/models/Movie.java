@@ -21,26 +21,6 @@ public class Movie implements Comparable<Movie> {
         }
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public int getPopularity() {
-        return popularity;
-    }
-
     public boolean hasWonAward() {
         return hasWonAward;
     }
