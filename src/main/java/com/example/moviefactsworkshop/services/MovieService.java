@@ -43,16 +43,22 @@ public class MovieService {
         return topTenList;
     }
 
-    public int howManyWonAnAward() {
+    public String howManyWonAnAward() {
         fh.handler();
         int count = 0;
 
-        for (int i = 0; i < fh.getMovies().size(); i++) {
+        for (Movie movie : fh.getMovies()) {
+            if(movie.hasWonAward()) {
+                count++;
+            }
+        }
+
+        /*for (int i = 0; i < fh.getMovies().size(); i++) {
             if(fh.getMovies().get(i).hasWonAward()) {
                 count ++;
             }
-        }
-        
-        return count;
+        }*/
+
+        return String.valueOf(count);
     }
 }

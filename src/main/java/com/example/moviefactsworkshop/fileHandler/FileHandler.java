@@ -22,6 +22,7 @@ public class FileHandler {
     }
 
     public void handler() {
+        movies.clear();
         File file = new File("src/main/resources/imdb-data.csv");
         try {
             Scanner scan = new Scanner(file);
